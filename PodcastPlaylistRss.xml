@@ -1,1 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title>Jordan Peterson Guest Appearances &amp; Highlights (Extended)</title>
+    <link>https://example.com/jordan-peterson-playlist</link>
+    <description>An extended custom playlist of podcasts featuring Jordan Peterson, with prioritized guest appearances on shows like The Joe Rogan Experience and Your Mom's House.</description>
+    <language>en-us</language>
+    <itunes:author>Generated Playlist</itunes:author>
+    <itunes:image href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Jordan_Peterson_by_Gage_Skidmore.jpg/1200px-Jordan_Peterson_by_Gage_Skidmore.jpg"/>
+    <itunes:explicit>yes</itunes:explicit>
 
+    <!-- Prioritized Episodes: Rogan & Segura -->
+
+    <item>
+      <title>The Joe Rogan Experience #1769 - Dr. Jordan Peterson</title>
+      <description>Dr. Jordan B. Peterson is a clinical psychologist and professor emeritus at the University of Toronto. He returns to the JRE to discuss a wide range of topics.</description>
+      <pubDate>Fri, 25 Nov 2022 10:00:00 GMT</pubDate>
+      <enclosure url="https://archive.org/download/jre-1769/JRE-1769.mp3" length="299300000" type="audio/mpeg"/>
+      <guid>https://archive.org/download/jre-1769/JRE-1769.mp3</guid>
+      <itunes:duration>4:08:42</itunes:duration>
+      <itunes:explicit>yes</itunes:explicit>
+    </item>
+
+    <item>
+      <title>The Joe Rogan Experience #1139 - Jordan Peterson</title>
+      <description>One of the most popular and impactful conversations between Joe Rogan and Jordan Peterson, covering meaning, chaos, order, and personal responsibility.</description>
+      <pubDate>Tue, 03 Jul 2018 10:00:00 GMT</pubDate>
+      <enclosure url="https://archive.org/download/1139JordanPeterson/1139%20-%20Jordan%20Peterson.mp3" length="175800000" type="audio/mpeg"/>
+      <guid>https://archive.org/download/1139JordanPeterson/1139%20-%20Jordan%20Peterson.mp3</guid>
+      <itunes:duration>2:03:11</itunes:duration>
+      <itunes:explicit>yes</itunes:explicit>
+    </item>
+
+    <item>
+      <title>Your Mom's House Ep. 685 - Dr. Jordan Peterson</title>
+      <description>Dr. Jordan Peterson joins Tom Segura and Christina P for a fascinating and often humorous conversation on the Your Mom's House podcast.</description>
+      <pubDate>Wed, 15 Dec 2021 10:00:00 GMT</pubDate>
+      <enclosure url="https://archive.org/download/ymh-685-jordan-peterson/YMH-685-JordanPeterson.mp3" length="115200000" type="audio/mpeg"/>
+      <guid>https://archive.org/download/ymh-685-jordan-peterson/YMH-685-JordanPeterson.mp3</guid>
+      <itunes:duration>1:35:59</itunes:duration>
+      <itunes:explicit>yes</itunes:explicit>
+    </item>
+
+    <!-- Other Jordan Peterson Podcast Episodes -->
+
+    <item>
+      <title>Lex Fridman Podcast #313 - Jordan Peterson: Life, Death, Power, Fame, and Meaning</title>
+      <description>A deep and wide-ranging conversation between Lex Fridman and Jordan Peterson, covering fundamental aspects of the human condition.</description>
+      <pubDate>Wed, 31 Aug 2022 10:00:00 GMT</pubDate>
+      <enclosure url="https://archive.org/download/lex-fridman-podcast-313-jordan-peterson/Lex_Fridman_Podcast_313_Jordan_Peterson.mp3" length="364320000" type="audio/mpeg"/>
+      <guid>https://archive.org/download/lex-fridman-podcast-313-jordan-peterson/Lex_Fridman_Podcast_313_Jordan_Peterson.mp3</guid>
+      <itunes:duration>5:03:36</itunes:duration>
+      <itunes:explicit>yes</itunes:explicit>
+    </item>
+
+    <item>
+      <title>The Ben Shapiro Show: Sunday Special Ep. 16 - Jordan Peterson</title>
+      <description>Jordan Peterson sits down with Ben Shapiro for a Sunday Special, discussing politics, culture, and the philosophical underpinnings of Western society.</description>
+      <pubDate>Sun, 20 May 2018 10:00:00 GMT</pubDate>
+      <enclosure url="https://archive.org/download/the-ben-shapiro-show-sunday-special-ep-16/The_Ben_Shapiro_Show_Sunday_Special_Ep_16.mp3" length="72000000" type="audio/mpeg"/>
+      <guid>https://archive.org/download/the-ben-shapiro-show-sunday-special-ep-16/The_Ben_Shapiro_Show_Sunday_Special_Ep_16.mp3</guid>
+      <itunes:duration>1:00:00</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+
+    <item>
+      <title>The Jordan B. Peterson Podcast - S4 E60: A The-O-Logy of The Simpsons | The Pageau Brothers</title>
+      <description>Dr. Peterson is joined by Jonathan and Matthieu Pageau to analyze the deep theological and symbolic structures present in the popular animated series, The Simpsons.</description>
+      <pubDate>Mon, 04 Jul 2022 10:00:00 GMT</pubDate>
+      <enclosure url="https://archive.org/download/JP-S4E60-Pageau/JP_S4E60_Pageau.mp3" length="124500000" type="audio/mpeg"/>
+      <guid>https://archive.org/download/JP-S4E60-Pageau/JP_S4E60_Pageau.mp3</guid>
+      <itunes:duration>1:43:45</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    
+    <item>
+      <title>The Jordan B. Peterson Podcast - S4 E45: Douglas Murray | The War on the West</title>
+      <description>Jordan Peterson and Douglas Murray discuss the themes from Murray's book "The War on the West," exploring the cultural and intellectual attacks on Western traditions.</description>
+      <pubDate>Mon, 02 May 2022 10:00:00 GMT</pubDate>
+      <enclosure url="https://archive.org/download/JBP-S4E45-DouglasMurray/JBP_S4E45_DouglasMurray.mp3" length="104760000" type="audio/mpeg"/>
+      <guid>https://archive.org/download/JBP-S4E45-DouglasMurray/JBP_S4E45_DouglasMurray.mp3</guid>
+      <itunes:duration>1:27:18</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+    
+    <item>
+      <title>The Jordan B. Peterson Podcast - Biblical Series II: Genesis 1 - Chaos &amp; Order</title>
+      <description>The second lecture in the Biblical Series. Dr. Peterson delves into the first chapter of Genesis, analyzing the concepts of chaos and order as foundational principles of reality.</description>
+      <pubDate>Tue, 23 May 2017 10:00:00 GMT</pubDate>
+      <enclosure url="https://archive.org/download/2017BiblicalSeries/2017%20Biblical%20Series/Biblical%20Series%20II_%20Genesis%201_%20Chaos%20%26%20Order.mp3" length="168400000" type="audio/mpeg"/>
+      <guid>https://archive.org/download/2017BiblicalSeries/2017%20Biblical%20Series/Biblical%20Series%20II_%20Genesis%201_%20Chaos%20%26%20Order.mp3</guid>
+      <itunes:duration>2:20:20</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+
+    <item>
+      <title>The Jordan B. Peterson Podcast - Biblical Series I: Introduction to the Idea of God</title>
+      <description>The first lecture in Dr. Peterson's highly popular psychological lecture series on the book of Genesis. This episode sets the stage for the entire series.</description>
+      <pubDate>Tue, 16 May 2017 10:00:00 GMT</pubDate>
+      <enclosure url="https://archive.org/download/2017BiblicalSeries/2017%20Biblical%20Series/Biblical%20Series%20I_%20Introduction%20to%20the%20Idea%20of%20God.mp3" length="173300000" type="audio/mpeg"/>
+      <guid>https://archive.org/download/2017BiblicalSeries/2017%20Biblical%20Series/Biblical%20Series%20I_%20Introduction%20to%20the%20Idea%20of%20God.mp3</guid>
+      <itunes:duration>2:31:05</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+
+    <item>
+      <title>Modern Wisdom 433 - Jordan Peterson - How To Fix Your Life</title>
+      <description>Chris Williamson hosts Dr. Jordan Peterson for a practical and insightful discussion on taking personal responsibility, overcoming adversity, and constructing a meaningful life.</description>
+      <pubDate>Mon, 29 Aug 2022 10:00:00 GMT</pubDate>
+      <enclosure url="https://archive.org/download/modern-wisdom-433-jordan-peterson/Modern_Wisdom_433_Jordan_Peterson.mp3" length="124560000" type="audio/mpeg"/>
+      <guid>https://archive.org/download/modern-wisdom-433-jordan-peterson/Modern_Wisdom_433_Jordan_Peterson.mp3</guid>
+      <itunes:duration>1:43:48</itunes:duration>
+      <itunes:explicit>yes</itunes:explicit>
+    </item>
+
+  </channel>
+</rss>
