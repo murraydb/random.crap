@@ -37,7 +37,7 @@ go2rtc:
   streams:
     driveway_tapo:
       - ffmpeg:rtsp://homeassistant:35Osprey@192.168.86.62/stream1#video=copy#audio=copy#audio=aac
-      - tapo://Clanking-Lapel1-Blubberd@192.168.86.62
+      - tapo://Clanking-Lapel1-Blubber@192.168.86.62
     driveway_tapo_detect:
       - ffmpeg:rtsp://homeassistant:35Osprey@192.168.86.62/stream2#video=copy#audio=copy#audio=aac
 
@@ -46,10 +46,10 @@ go2rtc:
     beeno_record:
       - ffmpeg:rtsp://admin:35Osprey@192.168.86.12:10554/tcp/av0_0#video=copy#audio=copy#audio=aac
     garage_old_detect:
-      -ffmpeg:rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=1#video=copy#audio=copy
+      - ffmpeg:rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=1#video=copy#audio=copy
 
     garage_old_record:
-      -ffmpeg:rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0#video=copy#audio=copy
+      - ffmpeg:rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0#video=copy#audio=copy
 
 #      - rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0_stream=1.sdp?real_stream
 #640x368
