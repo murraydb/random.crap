@@ -1,5 +1,3 @@
-
-
 ffmpeg:
 #  hwaccel_args: preset-vaapi
   hwaccel_args: preset-intel-qsv-h264
