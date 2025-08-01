@@ -1,0 +1,243 @@
+
+
+ffmpeg:
+#  hwaccel_args: preset-vaapi
+  hwaccel_args: preset-intel-qsv-h264
+mqtt:
+  enabled: true
+  host: 192.168.86.8
+#  host: core-mosquitto
+  user: frigate2
+  password: frigate!123
+  topic_prefix: frigate2
+  # Optional: client id (default: shown below)
+  # NOTE: must be unique if you are running multiple instances
+  client_id: frigate2
+
+#detectors:
+#  ov_0:
+#    type: openvino
+#    device: CPU
+#  ov_1:
+#    type: openvino
+#    device: GPU
+
+#cba7a266-c128-4008-8f6f-2b744bbb9f30:aa2a8e7fd523ce26f936cf526a67f3385b98609b
+
+  #go2rtc:
+#  streams:
+#    back:
+#      - rtsp://homeassistant:35Osprey@192.168.86.62:554/stream1 #You can use stream1 instead for high resolution
+     # - "ffmpeg:tapo1#video=copy#audio=opus" #works without it also
+#      - tapo://Clanking-Lapel1-Blubber@192.168.86.62
+#    backDetect:
+#      - ffmpeg:rtsp://homeassistant:35Osprey@192.168.86.62:554/stream2#video=copy#audio=copy
+       #You can use stream1 instead for high resolution
+go2rtc:
+  streams:
+    driveway_tapo:
+      - ffmpeg:rtsp://homeassistant:35Osprey@192.168.86.62/stream1#video=copy#audio=copy#audio=aac
+      - tapo://Clanking-Lapel1-Blubberd@192.168.86.62
+    driveway_tapo_detect:
+      - ffmpeg:rtsp://homeassistant:35Osprey@192.168.86.62/stream2#video=copy#audio=copy#audio=aac
+
+    beeno_detect:
+      - ffmpeg:rtsp://admin:35Osprey@192.168.86.12:10554/tcp/av0_1#video=copy#audio=copy#audio=aac
+    beeno_record:
+      - ffmpeg:rtsp://admin:35Osprey@192.168.86.12:10554/tcp/av0_0#video=copy#audio=copy#audio=aac
+    garage_old_detect:
+      -ffmpeg:rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=1#video=copy#audio=copy
+
+    garage_old_record:
+      -ffmpeg:rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0#video=copy#audio=copy
+
+#      - rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0_stream=1.sdp?real_stream
+#640x368
+#      - ffmpeg:rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0_stream=1.sdp?real_stream#video=copy#audio=copy
+
+#video=copy#audio=copy#audio=aac
+  webrtc:
+    candidates:
+      - 192.168.86.9:8555
+      - stun:8555
+  api:
+    origin: '*'
+
+cameras:
+  driveway_tapo:
+    ffmpeg:
+      retry_interval: 60
+      inputs:
+        - path: rtsp://192.168.86.9:8554/driveway_tapo?video=copy&audio=aac
+          input_args: preset-rtsp-restream
+          roles:
+            - record
+            - audio
+#            - detect
+        - path: rtsp://192.168.86.9:8554/driveway_tapo_detect?video=copy&audio=aac
+          input_args: preset-rtsp-restream
+          roles:
+#            - record
+#            - audio
+            - detect
+
+
+    #Audio detection settings:
+#    audio:
+#      enabled: false
+#      listen:
+#        - bark
+#        - scream
+#        - yell
+#        - glass
+#        - smash
+#        - speech
+#        - fire_alarm
+#        - smoke_detector
+#      filters:
+#        speech:
+#          threshold: 0.6
+#        glass:
+#          threshold: 0.5
+#        fire_alarm:
+#          threshold: 0.5
+#        smoke_detector:
+#          threshold: 0.5
+    snapshots:
+      enabled: true
+#      timestamp: true
+    record:
+      enabled: true
+      retain:
+        # Optional: Number of days to retain recordings regardless of events (default: shown below)
+        # NOTE: This should be set to 0 and retention should be defined in events section below
+        #       if you only want to retain recordings of events.
+        days: 1
+        # Optional: Mode for retention. Available options are: all, motion, and active_objects
+        #   all - save all recording segments regardless of activity
+        #   motion - save all recordings segments with any detected motion
+        #   active_objects - save all recording segments with active/moving objects
+        # NOTE: this mode only applies when the days setting above is greater than 0
+        mode: all
+      alerts:
+        retain:
+          days: 30
+          mode: motion
+      detections:
+        retain:
+          days: 30
+          mode: motion
+
+    detect:
+      enabled: true # <---- disable detection until you have a working camera feed
+      width: 640 # <---- update for your camera's resolution
+      height: 368 # <---- update for your camera's resolution
+      fps: 5
+#      detector: ov_0
+
+    onvif:
+      # Required: host of the camera being connected to.
+      host: 192.168.86.62
+      # Optional: ONVIF port for device (default: shown below).
+      port: 2020
+      # Optional: username for login.
+      # NOTE: Some devices require admin to access ONVIF.
+      user: homeassistant
+      # Optional: password for login.
+      password: 35Osprey
+      # Optional: PTZ camera object autotracking. Keeps a moving object in
+      # the center of the frame by automatically moving the PTZ camera.
+      autotracking:
+        # Optional: enable/disable object autotracking. (default: shown below)
+        enabled: false
+        # Optional: list of objects to track from labelmap.txt (default: shown below)
+        track:
+          - person
+        # Required: Begin automatically tracking an object when it enters any of the listed zones.
+        #required_zones:
+        #  - all
+        # Required: Name of ONVIF preset in camera's firmware to return to when tracking is over. (default: shown below)
+        return_preset: '3'
+        # Optional: Seconds to delay before returning to preset. (default: shown below)
+
+#    motion:
+#      mask: 
+#        1,0.41,0.932,0.29,0.727,0.24,0.677,0.235,0.623,0.163,0.587,0.138,0.741,0.112,0.884,0.184,1,0.28
+  insidegaragecam:
+    ffmpeg:
+#      hwaccel_args: preset-vaapi
+      hwaccel_args: preset-intel-qsv-h264
+
+      inputs:
+        - path:
+            rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0_stream=1.sdp?real_stream
+          roles:
+            - detect
+#        - path: rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0_stream=1.sdp
+#          roles:
+            - record
+    onvif:
+      host: 192.168.86.11
+      port: 8899
+      user: admin
+      password: NtXGmCpY
+    detect:
+      enabled: false # <---- disable detection until you have a working camera feed
+#      enabled: true # <---- disable detection until you have a working camera feed
+#      width: 640 # <---- update for your camera's resolution
+#      height: 360 # <---- update for your camera's resolution
+#      fps: 5
+#      detector: ov_0
+
+    record: # <----- Enable recording
+      enabled: true
+    snapshots: # <----- Enable snapshots
+      enabled: true
+
+  beenocamgarage:
+    ffmpeg:
+#      hwaccel_args: preset-vaapi
+      hwaccel_args: preset-intel-qsv-h264
+
+#      inputs:
+#        - path:
+#            rtsp://admin:35Osprey@192.168.86.12:10554/tcp/av0_0
+#          roles:
+#            - detect
+#        - path:
+#            rtsp://admin:35Osprey@192.168.86.12:10554/tcp/av0_1
+#          roles:
+#            - record
+      inputs:
+        - path: rtsp://192.168.86.9:8554/beeno_record?video=copy&audio=aac
+          input_args: preset-rtsp-restream
+          roles:
+            - record
+            - audio
+#            - detect
+        - path: rtsp://192.168.86.9:8554/beeno_detect?video=copy&audio=aac
+          input_args: preset-rtsp-restream
+          roles:
+#            - record
+#            - audio
+            - detect    
+    onvif:
+      host: 192.168.86.12
+      port: 10080
+      user: admin
+      password: 35Osprey
+    detect:
+#      enabled: false # <---- disable detection until you have a working camera feed
+      enabled: true # <---- disable detection until you have a working camera feed
+      width: 448 # <---- update for your camera's resolution
+      height: 256 # <---- update for your camera's resolution
+#      fps: 5
+#      detector: ov_0
+
+    record: # <----- Enable recording
+      enabled: true
+#      enabled: false
+    snapshots: # <----- Enable snapshots
+      enabled: true
+
+version: 0.15-1
