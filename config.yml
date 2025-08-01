@@ -1,3 +1,4 @@
+
 ffmpeg:
 #  hwaccel_args: preset-vaapi
   hwaccel_args: preset-intel-qsv-h264
@@ -127,7 +128,7 @@ cameras:
           mode: motion
 
     detect:
-      enabled: true # <---- disable detection until you have a working camera feed
+      enabled: false #true # <---- disable detection until you have a working camera feed
       width: 640 # <---- update for your camera's resolution
       height: 368 # <---- update for your camera's resolution
       fps: 5
@@ -218,7 +219,7 @@ cameras:
           roles:
 #            - record
 #            - audio
-            - detect    
+            - detect
     onvif:
       host: 192.168.86.12
       port: 10080
@@ -226,14 +227,14 @@ cameras:
       password: 35Osprey
     detect:
 #      enabled: false # <---- disable detection until you have a working camera feed
-      enabled: true # <---- disable detection until you have a working camera feed
+      enabled: false # <---- disable detection until you have a working camera feed
       width: 448 # <---- update for your camera's resolution
       height: 256 # <---- update for your camera's resolution
 #      fps: 5
 #      detector: ov_0
 
     record: # <----- Enable recording
-      enabled: true
+#      enabled: true
 #      enabled: false
     snapshots: # <----- Enable snapshots
       enabled: true
