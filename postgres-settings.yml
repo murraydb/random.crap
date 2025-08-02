@@ -1,0 +1,14 @@
+services:
+  musicbrainz:
+    environment:
+      POSTGRES_USER: "lidarr"
+      POSTGRES_PASSWORD: "Postgres-Weird-Bob1"
+      MUSICBRAINZ_WEB_SERVER_HOST: "192.268.86.140"  # Replace with your host IP
+  db:
+    environment:
+      POSTGRES_USER: "lidarr"
+      POSTGRES_PASSWORD: "Postgres-Weird-Bob1"
+  indexer:
+    environment:
+      POSTGRES_USER: "lidarr"
+      POSTGRES_PASSWORD: "Postgres-Weird-Bob1"
