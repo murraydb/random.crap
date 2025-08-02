@@ -1,4 +1,5 @@
 
+
 ffmpeg:
 #  hwaccel_args: preset-vaapi
   hwaccel_args: preset-intel-qsv-h264
@@ -44,17 +45,12 @@ go2rtc:
       - ffmpeg:rtsp://admin:35Osprey@192.168.86.12:10554/tcp/av0_1#video=copy#audio=copy#audio=aac
     beeno_record:
       - ffmpeg:rtsp://admin:35Osprey@192.168.86.12:10554/tcp/av0_0#video=copy#audio=copy#audio=aac
-    garage_old_detect:
-      - ffmpeg:rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=1#video=copy#audio=copy
-
-    garage_old_record:
-      - ffmpeg:rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0#video=copy#audio=copy
-
-#      - rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0_stream=1.sdp?real_stream
-#640x368
-#      - ffmpeg:rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0_stream=1.sdp?real_stream#video=copy#audio=copy
-
+    old_garage: 
+      - ffmpeg:rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0_stream=0.sdp?real_stream#video=copy#audio=copy
 #video=copy#audio=copy#audio=aac
+    old_garage2:
+      - ffmpeg:rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0_stream=1.sdp?real_stream#video=copy#audio=copy
+
   webrtc:
     candidates:
       - 192.168.86.9:8555
@@ -128,7 +124,7 @@ cameras:
           mode: motion
 
     detect:
-      enabled: false #true # <---- disable detection until you have a working camera feed
+      enabled: true # <---- disable detection until you have a working camera feed
       width: 640 # <---- update for your camera's resolution
       height: 368 # <---- update for your camera's resolution
       fps: 5
@@ -219,7 +215,7 @@ cameras:
           roles:
 #            - record
 #            - audio
-            - detect
+            - detect    
     onvif:
       host: 192.168.86.12
       port: 10080
@@ -227,16 +223,68 @@ cameras:
       password: 35Osprey
     detect:
 #      enabled: false # <---- disable detection until you have a working camera feed
-      enabled: false # <---- disable detection until you have a working camera feed
+      enabled: true # <---- disable detection until you have a working camera feed
       width: 448 # <---- update for your camera's resolution
       height: 256 # <---- update for your camera's resolution
 #      fps: 5
 #      detector: ov_0
 
     record: # <----- Enable recording
-#      enabled: true
+      enabled: true
 #      enabled: false
     snapshots: # <----- Enable snapshots
       enabled: true
+
+###new
+
+
+  oldcamgarage:
+    ffmpeg:
+#      hwaccel_args: preset-vaapi
+      hwaccel_args: preset-intel-qsv-h264
+
+#      inputs:
+#        - path:
+#            rtsp://admin:35Osprey@192.168.86.12:10554/tcp/av0_0
+#          roles:
+#            - detect
+#        - path:
+#            rtsp://admin:35Osprey@192.168.86.12:10554/tcp/av0_1
+#          roles:
+#            - record
+      inputs:
+        - path: rtsp://192.168.86.9:8554/old_garage?video=copy&audio=aac
+          input_args: preset-rtsp-restream
+          roles:
+            - record
+            - audio
+#            - detect
+        - path: rtsp://192.168.86.9:8554/old_garage2?video=copy&audio=aac
+          input_args: preset-rtsp-restream
+          roles:
+#            - record
+#            - audio
+            - detect
+    onvif:
+      host: 192.168.86.11
+      port: 8899
+      user: admin
+      password: NtXGmCpY
+    detect:
+#      enabled: false # <---- disable detection until you have a working camera feed
+      enabled: true # <---- disable detection until you have a working camera feed
+      width: 640 # <---- update for your camera's resolution
+      height: 368 # <---- update for your camera's resolution
+#      fps: 5
+#      detector: ov_0
+
+    record: # <----- Enable recording
+      enabled: true
+#      enabled: false
+    snapshots: # <----- Enable snapshots
+      enabled: true
+
+
+
 
 version: 0.15-1
