@@ -45,11 +45,15 @@ go2rtc:
       - ffmpeg:rtsp://admin:35Osprey@192.168.86.12:10554/tcp/av0_1#video=copy#audio=copy#audio=aac
     beeno_record:
       - ffmpeg:rtsp://admin:35Osprey@192.168.86.12:10554/tcp/av0_0#video=copy#audio=copy#audio=aac
-    old_garage: 
+
+    old_garage:
       - ffmpeg:rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0_stream=0.sdp?real_stream#video=copy#audio=copy
-#video=copy#audio=copy#audio=aac
     old_garage2:
       - ffmpeg:rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0_stream=1.sdp?real_stream#video=copy#audio=copy
+#    old_garage:
+#      - ffmpeg:rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0_stream=0.sdp?real_stream#video=copy#audio=copy
+#    old_garage2:
+#      - ffmpeg:rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0_stream=1.sdp?real_stream#video=copy#audio=copy
 
   webrtc:
     candidates:
@@ -158,36 +162,36 @@ cameras:
 #    motion:
 #      mask: 
 #        1,0.41,0.932,0.29,0.727,0.24,0.677,0.235,0.623,0.163,0.587,0.138,0.741,0.112,0.884,0.184,1,0.28
-  insidegaragecam:
-    ffmpeg:
-#      hwaccel_args: preset-vaapi
-      hwaccel_args: preset-intel-qsv-h264
-
-      inputs:
-        - path:
-            rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0_stream=1.sdp?real_stream
-          roles:
-            - detect
+#  insidegaragecam:
+#    ffmpeg:
+##      hwaccel_args: preset-vaapi
+#      hwaccel_args: preset-intel-qsv-h264
+#
+#      inputs:
+#        - path:
+#            rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0_stream=1.sdp?real_stream
+#          roles:
+#            - detect
 #        - path: rtsp://192.168.86.11:554/user=admin_password=NtXGmCpY_channel=0_stream=1.sdp
 #          roles:
-            - record
-    onvif:
-      host: 192.168.86.11
-      port: 8899
-      user: admin
-      password: NtXGmCpY
-    detect:
-      enabled: false # <---- disable detection until you have a working camera feed
-#      enabled: true # <---- disable detection until you have a working camera feed
-#      width: 640 # <---- update for your camera's resolution
-#      height: 360 # <---- update for your camera's resolution
-#      fps: 5
-#      detector: ov_0
+#            - record
+#    onvif:
+#      host: 192.168.86.11
+#      port: 8899
+#      user: admin
+#      password: NtXGmCpY
+#    detect:
+#      enabled: false # <---- disable detection until you have a working camera feed
+##      enabled: true # <---- disable detection until you have a working camera feed
+##      width: 640 # <---- update for your camera's resolution
+##      height: 360 # <---- update for your camera's resolution
+##      fps: 5
+# #      detector: ov_0
 
-    record: # <----- Enable recording
-      enabled: true
-    snapshots: # <----- Enable snapshots
-      enabled: true
+#    record: # <----- Enable recording
+#      enabled: true
+#    snapshots: # <----- Enable snapshots
+#      enabled: true
 
   beenocamgarage:
     ffmpeg:
